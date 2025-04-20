@@ -20,7 +20,7 @@ Click on SignIn
     Click Button    ${btn_SignIn}
 
 Check login successfully
-    Wait Until Element Is Visible    ${elm_daily_batch_report}      20s
+    Wait Until Element Is Visible    ${elm_daily_batch_report}      15s
     ${actual_result}=    Run Keyword And Return Status
     ...    Page Should Contain Element    ${elm_daily_batch_report}
     Should Be True    "${actual_result}" == "${TRUE}"    The home page is not visible
