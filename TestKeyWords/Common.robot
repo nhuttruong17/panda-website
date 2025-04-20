@@ -1,0 +1,13 @@
+*** Settings ***
+Library     SeleniumLibrary
+Resource    ../TestData/Global.robot
+*** Keywords ***
+Basic Setup
+    ${chrome_options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys
+    Call Method    ${chrome_options}    add_argument    --start-maximized
+    Call Method    ${chrome_options}    add_argument    --incognito
+    Call Method    ${chrome_options}    add_argument    --disable-popup-blocking
+    Open Browser    ${URL}    ${CHROME_BROWSER}    options=${chrome_options}
+
+Basic TearDown
+    Close Browser
